@@ -1,0 +1,24 @@
+body {
+    width: 900px;
+    margin: 0 auto;
+    background-color: pink;
+}
+
+header, footer {
+    text-align: center;
+}
+
+main {
+    background-color: white;
+    padding: 15px 20px;
+    width: 750px;
+    margin: 0 auto;
+}
+
+main .top-bar {
+    text-align: center;
+}
+
+#startBtn-p {
+    text-align: center;
+}
