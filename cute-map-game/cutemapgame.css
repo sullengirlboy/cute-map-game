@@ -52,4 +52,10 @@ main .top-bar {
     border: 2px solid black;
     border-radius: 15px;
     position: absolute;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pin:hover {
+    box-shadow: 0 0 0 10px rgba(243, 33, 135, 0.1);
 }
