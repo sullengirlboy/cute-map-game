@@ -2,7 +2,9 @@
 var startBtn = document.getElementById("startBtn");
 var gameContainer = document.getElementById("game-p");
 var mapContainer = document.getElementById("map");
-var currentTarget;
+var currentTargetHTML = document.getElementById("current-target");
+var questionCounterHTML = document.getElementById("progress");
+
 // variables
 var locations = [
     {
@@ -67,20 +69,21 @@ var locations = [
     }
 ];
 var locationNames = locations.map(loc => loc.name);
+var shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
+var currentTarget;
 var questionCounter = 0;
 
 // program code
 startBtn.addEventListener("click", startGame);
 
 // functions
-
 function startGame() {
     console.log("game started!");
     gameContainer.style.display = "block";
     startBtn.style.display = "none";
     createPins();
-    var shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
     currentTarget = shuffledLocations[questionCounter];
+    currentTargetHTML.innerHTML = currentTarget;
 }
 
 function createPins() {
@@ -94,10 +97,22 @@ function createPins() {
     });
 }
 
-function checkAnswer(selectedName){ 
-    if (selectedName === currentTarget) {
+function checkAnswer(selectedPin){ 
+    if (selectedPin === currentTarget) {
         alert("correct");
+        questionCounterHTML.innerHTML = questionCounter + 1;
+        if (questionCounter == locationNames.length - 1) {
+            alert("quiz finished");
+        } else {
+            nextQuestion();
+        }
     } else {
         alert("try again");
     }
+}
+
+function nextQuestion(){
+    questionCounter += 1;
+    currentTarget = shuffledLocations[questionCounter];
+    currentTargetHTML.innerHTML = currentTarget;
 }
