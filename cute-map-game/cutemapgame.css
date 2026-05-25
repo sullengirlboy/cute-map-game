@@ -1,3 +1,8 @@
+
+* {
+    box-sizing: border-box
+}
+
 body {
     width: 900px;
     margin: 0 auto;
@@ -24,11 +29,11 @@ main .top-bar {
     text-align: center;
 }
 
-#startBtn-p {
-    
+#game-p {
+    display: none;
 }
 
-.map {
+#map {
     width: 550px;
     height: 500px;
     border: 2px solid black;
@@ -36,4 +41,15 @@ main .top-bar {
     background-size:  500px auto;
     background-position: center;
     background-repeat: no-repeat;
+
+    position: relative;
+}
+
+.pin {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    position: absolute;
 }
