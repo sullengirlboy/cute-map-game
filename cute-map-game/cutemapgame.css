@@ -56,6 +56,6 @@ main .top-bar {
     transition: 0.2s;
 }
 
-.pin:hover {
+.pin:hover, .pin:focus-visible {
     box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.1);
 }
