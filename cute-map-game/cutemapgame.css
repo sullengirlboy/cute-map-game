@@ -13,6 +13,11 @@ main {
     padding: 15px 20px;
     width: 750px;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 main .top-bar {
@@ -20,5 +25,15 @@ main .top-bar {
 }
 
 #startBtn-p {
-    text-align: center;
+    
+}
+
+.map {
+    width: 550px;
+    height: 500px;
+    border: 2px solid black;
+    background-image: url(/cute-map-game/img/mo-outlinev3.svg);
+    background-size:  500px auto;
+    background-position: center;
+    background-repeat: no-repeat;
 }
