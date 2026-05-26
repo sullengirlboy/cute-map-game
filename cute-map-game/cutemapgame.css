@@ -1,6 +1,6 @@
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
@@ -55,19 +55,27 @@ main .top-bar {
     cursor: pointer;
     transition-property: box-shadow, border-width;
     transition-duration: 0.2s, 0s;
+    padding: 3px;
 }
 
 .pin:hover, .pin:focus-visible {
-    box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.15);
+    box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.1);
     border-width: 2px;
 }
 
 .pin.selected {
-    background-color: gray;
+    background-color: lightgray;
     cursor: initial;
 }
 
 .pin.selected:hover, .pin.selected:focus-visible {
     box-shadow: none;
     border-width: 1.5px;
+}
+
+.pin-inside {
+    background-color: black;
+    width: 6.5px;
+    height: 6.5px;
+    border-radius: 6.5px;
 }

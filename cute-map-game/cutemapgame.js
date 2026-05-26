@@ -102,6 +102,9 @@ function checkAnswer(selectedPin){
         alert("correct");
         questionCounterHTML.innerHTML = questionCounter + 1;
         event.target.setAttribute("class", "pin selected");
+        var pinInside = document.createElement("div");
+        pinInside.setAttribute("class", "pin-inside");
+        event.target.appendChild(pinInside);
         if (questionCounter == locationNames.length - 1) {
             alert("quiz finished");
         } else {
