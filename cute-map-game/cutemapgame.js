@@ -92,7 +92,7 @@ function createPins() {
         pin.setAttribute("class", "pin");
         pin.style.left = loc.x + '%';
         pin.style.top = loc.y + '%';
-        pin.addEventListener("click", () => checkAnswer(loc.name));
+        pin.addEventListener("click", () => checkAnswer(loc.name), { once: true });
         mapContainer.appendChild(pin);
     });
 }
@@ -101,7 +101,6 @@ function checkAnswer(selectedPin){
     if (selectedPin === currentTarget) {
         alert("correct");
         questionCounterHTML.innerHTML = questionCounter + 1;
-        event.target.removeEventListener("click", () => checkAnswer(loc.name));
         event.target.setAttribute("class", "pin selected");
         if (questionCounter == locationNames.length - 1) {
             alert("quiz finished");
