@@ -53,11 +53,13 @@ main .top-bar {
     border-radius: 15px;
     position: absolute;
     cursor: pointer;
-    transition: 0.2s;
+    transition-property: box-shadow, border-width;
+    transition-duration: 0.2s, 0s;
 }
 
 .pin:hover, .pin:focus-visible {
-    box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.1);
+    box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.15);
+    border-width: 2px;
 }
 
 .pin.selected {
