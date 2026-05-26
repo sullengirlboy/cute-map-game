@@ -69,4 +69,5 @@ main .top-bar {
 
 .pin.selected:hover, .pin.selected:focus-visible {
     box-shadow: none;
+    border-width: 1.5px;
 }
