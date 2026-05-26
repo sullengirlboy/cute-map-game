@@ -49,7 +49,7 @@ main .top-bar {
     width: 15px;
     height: 15px;
     background-color: white;
-    border: 2px solid black;
+    border: 1.5px solid black;
     border-radius: 15px;
     position: absolute;
     cursor: pointer;
@@ -58,4 +58,13 @@ main .top-bar {
 
 .pin:hover, .pin:focus-visible {
     box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.1);
+}
+
+.pin.selected {
+    background-color: gray;
+    cursor: initial;
+}
+
+.pin.selected:hover, .pin.selected:focus-visible {
+    box-shadow: none;
 }

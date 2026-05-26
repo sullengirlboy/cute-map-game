@@ -101,6 +101,8 @@ function checkAnswer(selectedPin){
     if (selectedPin === currentTarget) {
         alert("correct");
         questionCounterHTML.innerHTML = questionCounter + 1;
+        event.target.removeEventListener("click", () => checkAnswer(loc.name));
+        event.target.setAttribute("class", "pin selected");
         if (questionCounter == locationNames.length - 1) {
             alert("quiz finished");
         } else {
