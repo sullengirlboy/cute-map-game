@@ -86,7 +86,6 @@ function startGame() {
     currentTarget = shuffledLocations[questionCounter];
     currentTargetHTML.innerHTML = currentTarget;
     mapContainer.addEventListener("mousemove", () => moveCursorToolTip(event));
-    // cursorToolTip.innerHTML = "Click on <b>" + currentTarget + "</b>";
 }
 
 function createPins() {
@@ -102,7 +101,6 @@ function createPins() {
 
 function checkAnswer(selectedPin){ 
     if (selectedPin === currentTarget) {
-        
         questionCounterHTML.innerHTML = questionCounter + 1;
         event.target.setAttribute("class", "pin selected");
         var pinInside = document.createElement("div");
@@ -128,6 +126,6 @@ function moveCursorToolTip(e){
     var rect = mapContainer.getBoundingClientRect();
     var xInsideDiv = e.clientX - rect.left;
     var yInsideDiv = e.clientY - rect.top;
-    cursorToolTip.style.left = (xInsideDiv + 10) + "px";
+    cursorToolTip.style.left = (xInsideDiv + 12.5) + "px";
     cursorToolTip.style.top = (yInsideDiv + 5) + "px";
 }
