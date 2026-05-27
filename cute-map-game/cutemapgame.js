@@ -73,6 +73,8 @@ var locationNames = locations.map(loc => loc.name);
 var shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
 var currentTarget;
 var questionCounter = 0;
+var timer = 0;
+var timerInterval;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -80,6 +82,7 @@ startBtn.addEventListener("click", startGame);
 // functions
 function startGame() {
     console.log("game started!");
+    timerInterval = setInterval(myTimer, 1000);
     gameContainer.style.display = "block";
     startBtn.style.display = "none";
     createPins();
@@ -112,6 +115,7 @@ function checkAnswer(e, selectedPin){
         selectedPinHTML.appendChild(pinInside);
         if (questionCounter == locationNames.length - 1) {
             alert("quiz finished");
+            clearInterval(timerInterval);
         } else {
             nextQuestion();
         }
@@ -138,4 +142,9 @@ function updateCurrentTargetHTML(){
     currentTargetHTML.forEach(element => {
         element.innerHTML = currentTarget;
     });
+}
+
+function myTimer(){
+    timer += 1;
+    console.log(timer);
 }
