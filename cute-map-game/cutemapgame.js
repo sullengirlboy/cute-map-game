@@ -5,6 +5,7 @@ var mapContainer = document.getElementById("map");
 var currentTargetHTML = document.querySelectorAll(".current-target");
 var questionCounterHTML = document.getElementById("progress");
 var cursorToolTip = document.getElementById("cursor-tooltip");
+var timerHTML = document.getElementById("timer");
 
 // variables
 var locations = [
@@ -75,6 +76,8 @@ var currentTarget;
 var questionCounter = 0;
 var timer = 0;
 var timerInterval;
+var minutes = 0;
+var seconds = 0;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -146,5 +149,20 @@ function updateCurrentTargetHTML(){
 
 function myTimer(){
     timer += 1;
-    console.log(timer);
+    updateTimerHTML(timer);
+}
+
+function updateTimerHTML(timer){
+    if (timer >= 60){
+        minutes = Math.floor(timer / 60);
+        seconds = timer - (minutes * 60);
+    } else {
+        seconds = timer;
+    }
+    if (seconds < 10) {
+        seconds = seconds.toString().padStart(2, '0'); ;
+    } else {
+        seconds = seconds;
+    }
+    timerHTML.innerHTML = minutes + ":" + seconds;
 }
