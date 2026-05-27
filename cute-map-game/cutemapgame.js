@@ -86,6 +86,7 @@ startBtn.addEventListener("click", startGame);
 function startGame() {
     console.log("game started!");
     timerInterval = setInterval(myTimer, 1000);
+    timerHTML.innerHTML = minutes + ":0" + seconds;
     gameContainer.style.display = "block";
     startBtn.style.display = "none";
     createPins();
