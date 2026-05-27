@@ -135,12 +135,21 @@ function checkAnswer(e, selectedPin){
         } else {
             nextQuestion();
         }
-    } else if (tries == 0) {
-        alert(tries + " tries left. click the right one!!!!");
-        correctPinHTML.classList.toggle("alert");
-        zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
-    } else if (tries <= 3) {
-        alert("try again. " + tries + " tries left.");
+    } else {
+        var selectedPinToolTip = document.createElement("div");
+        selectedPinToolTip.setAttribute("class", "tooltip");
+        var rect = mapContainer.getBoundingClientRect();
+        var xInsideDiv = e.clientX - rect.left;
+        var yInsideDiv = e.clientY - rect.top;
+        selectedPinToolTip.style.left = (xInsideDiv + 12.5) + "px";
+        selectedPinToolTip.style.top = (yInsideDiv + 5) + "px";
+        selectedPinToolTip.style.opacity = 1;
+        selectedPinToolTip.innerHTML = "<b>" + selectedPin + "</b>";
+        mapContainer.appendChild(selectedPinToolTip);
+        if (tries == 0) {
+            correctPinHTML.classList.toggle("alert");
+            zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
+        }
     }
 }
 
