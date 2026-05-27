@@ -80,6 +80,7 @@ var minutes = 0;
 var seconds = 0;
 var tries = 3;
 var zeroTriesPinInterval;
+var score = 0;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -145,7 +146,16 @@ function checkAnswer(e, selectedPin){
 
 function nextQuestion(){
     clearInterval(zeroTriesPinInterval);
-    console.log("interval cleared");
+    if (tries == 2){
+        score += 1;
+    } else if (tries == 1){
+        score += 0.5;
+    } else if (tries == 0){
+        score += 0.25;
+    } else if (tries < 0){
+        score += 0;
+    }
+    console.log(score);
     tries = 3;
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
