@@ -99,3 +99,7 @@ main .top-bar {
 #map:hover #cursor-tooltip {
     opacity: 1;
 }
+
+.pin.alert {
+    background-color: rgb(255, 51, 51);
+}

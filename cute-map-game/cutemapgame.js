@@ -102,6 +102,7 @@ function createPins() {
         pin.setAttribute("class", "pin");
         pin.style.left = loc.x + '%';
         pin.style.top = loc.y + '%';
+        pin.dataset.name = loc.name;
         pin.addEventListener("click", (e) => checkAnswer(e, loc.name));
         mapContainer.appendChild(pin);
     });
@@ -110,6 +111,7 @@ function createPins() {
 function checkAnswer(e, selectedPin){
     tries = tries - 1;
     var selectedPinHTML = e.currentTarget;
+    var correctPinHTML = mapContainer.querySelector(`[data-name="${currentTarget}"]`);
     if (selectedPinHTML.classList.contains("selected")) {
         return;
     }
@@ -127,8 +129,7 @@ function checkAnswer(e, selectedPin){
         }
     } else if (tries == 0) {
         alert(tries + " tries left. click the right one!!!!");
-        // signal to answer
-        nextQuestion();
+        correctPinHTML.setAttribute("class", "pin alert");
     } else if (tries <= 3) {
         alert("try again. " + tries + " tries left.");
     }
