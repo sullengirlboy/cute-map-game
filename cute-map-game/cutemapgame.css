@@ -82,7 +82,7 @@ main .top-bar {
     border-radius: 6.5px;
 }
 
-#cursor-tooltip {
+.tooltip {
     opacity: 0;
     background: rgba(255, 19, 86, 0.1);
     width: auto;
