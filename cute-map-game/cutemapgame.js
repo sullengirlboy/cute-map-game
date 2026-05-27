@@ -85,7 +85,7 @@ function startGame() {
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
-    mapContainer.addEventListener("mousemove", () => moveCursorToolTip(event));
+    mapContainer.addEventListener("mousemove", (e) => moveCursorToolTip(e));
 }
 
 function createPins() {
