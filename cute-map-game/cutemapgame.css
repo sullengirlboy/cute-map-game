@@ -7,6 +7,7 @@ body {
     width: 900px;
     margin: 0 auto;
     background-color: pink;
+    position: relative;
 }
 
 header, footer {
@@ -59,7 +60,7 @@ main .top-bar {
 }
 
 .pin:hover, .pin:focus-visible {
-    box-shadow: 0 0 0 10px rgba(255, 19, 203, 0.1);
+    box-shadow: 0 0 0 10px rgba(255, 19, 86, 0.1);
     border-width: 2px;
 }
 
@@ -78,4 +79,14 @@ main .top-bar {
     width: 6.5px;
     height: 6.5px;
     border-radius: 6.5px;
+}
+
+#cursor-tooltip {
+    background: rgba(255, 19, 86, 0.1);
+    width: auto;
+    height: auto;
+    border: 1.5px solid lightgray;
+    position: fixed;
+    padding: 2.5px;
+    font-size: 0.9em;
 }

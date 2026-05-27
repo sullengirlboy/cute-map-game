@@ -4,6 +4,7 @@ var gameContainer = document.getElementById("game-p");
 var mapContainer = document.getElementById("map");
 var currentTargetHTML = document.getElementById("current-target");
 var questionCounterHTML = document.getElementById("progress");
+var cursorToolTip = document.getElementById("cursor-tooltip");
 
 // variables
 var locations = [
@@ -84,6 +85,7 @@ function startGame() {
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     currentTargetHTML.innerHTML = currentTarget;
+    // cursorToolTip.innerHTML = "Click on <b>" + currentTarget + "</b>";
 }
 
 function createPins() {
@@ -99,7 +101,7 @@ function createPins() {
 
 function checkAnswer(selectedPin){ 
     if (selectedPin === currentTarget) {
-        alert("correct");
+        
         questionCounterHTML.innerHTML = questionCounter + 1;
         event.target.setAttribute("class", "pin selected");
         var pinInside = document.createElement("div");
