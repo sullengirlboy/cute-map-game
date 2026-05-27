@@ -79,6 +79,7 @@ var timerInterval;
 var minutes = 0;
 var seconds = 0;
 var tries = 3;
+var zeroTriesPinInterval;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -129,13 +130,15 @@ function checkAnswer(e, selectedPin){
         }
     } else if (tries == 0) {
         alert(tries + " tries left. click the right one!!!!");
-        correctPinHTML.setAttribute("class", "pin alert");
+        zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
     } else if (tries <= 3) {
         alert("try again. " + tries + " tries left.");
     }
 }
 
 function nextQuestion(){
+    clearInterval(zeroTriesPinInterval);
+    console.log("interval cleared");
     tries = 3;
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
@@ -174,4 +177,9 @@ function updateTimerHTML(timer){
         seconds = seconds;
     }
     timerHTML.innerHTML = minutes + ":" + seconds;
+}
+
+function zeroTriesPin(pin){
+    console.log("this is running!");
+    pin.classList.toggle("alert");
 }
