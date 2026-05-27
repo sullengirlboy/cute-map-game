@@ -2,7 +2,7 @@
 var startBtn = document.getElementById("startBtn");
 var gameContainer = document.getElementById("game-p");
 var mapContainer = document.getElementById("map");
-var currentTargetHTML = document.getElementById("current-target");
+var currentTargetHTML = document.querySelectorAll(".current-target");
 var questionCounterHTML = document.getElementById("progress");
 var cursorToolTip = document.getElementById("cursor-tooltip");
 
@@ -84,7 +84,7 @@ function startGame() {
     startBtn.style.display = "none";
     createPins();
     currentTarget = shuffledLocations[questionCounter];
-    currentTargetHTML.innerHTML = currentTarget;
+    updateCurrentTargetHTML();
     mapContainer.addEventListener("mousemove", () => moveCursorToolTip(event));
 }
 
@@ -119,7 +119,7 @@ function checkAnswer(selectedPin){
 function nextQuestion(){
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
-    currentTargetHTML.innerHTML = currentTarget;
+    updateCurrentTargetHTML();
 }
 
 function moveCursorToolTip(e){
@@ -128,4 +128,10 @@ function moveCursorToolTip(e){
     var yInsideDiv = e.clientY - rect.top;
     cursorToolTip.style.left = (xInsideDiv + 12.5) + "px";
     cursorToolTip.style.top = (yInsideDiv + 5) + "px";
+}
+
+function updateCurrentTargetHTML(){
+    currentTargetHTML.forEach(element => {
+        element.innerHTML = currentTarget;
+    });
 }
