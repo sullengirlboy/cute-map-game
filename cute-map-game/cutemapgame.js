@@ -78,6 +78,7 @@ var timer = 0;
 var timerInterval;
 var minutes = 0;
 var seconds = 0;
+var tries = 3;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -107,6 +108,7 @@ function createPins() {
 }
 
 function checkAnswer(e, selectedPin){
+    tries = tries - 1;
     var selectedPinHTML = e.currentTarget;
     if (selectedPinHTML.classList.contains("selected")) {
         return;
@@ -123,12 +125,17 @@ function checkAnswer(e, selectedPin){
         } else {
             nextQuestion();
         }
-    } else {
-        alert("try again");
+    } else if (tries == 0) {
+        alert(tries + " tries left. click the right one!!!!");
+        // signal to answer
+        nextQuestion();
+    } else if (tries <= 3) {
+        alert("try again. " + tries + " tries left.");
     }
 }
 
 function nextQuestion(){
+    tries = 3;
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
