@@ -103,3 +103,23 @@ main .top-bar {
 .pin.alert {
     background-color: rgb(229, 55, 55);
 }
+
+.pin.selected-red {
+    background-color: rgb(229, 55, 55);
+    cursor: initial;
+}
+
+.pin.selected-red:hover, .pin.selected-red:focus-visible {
+    box-shadow: none;
+    border-width: 1.5px;
+}
+
+.pin.selected-yellow {
+    background-color: rgb(229, 185, 55);
+    cursor: initial;
+}
+
+.pin.selected-yellow:hover, .pin.selected-yellow:focus-visible {
+    box-shadow: none;
+    border-width: 1.5px;
+}
