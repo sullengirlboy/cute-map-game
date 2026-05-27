@@ -95,7 +95,7 @@ function startGame() {
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
-    mapContainer.addEventListener("mousemove", (e) => moveCursorToolTip(e));
+    mapContainer.addEventListener("mousemove", (e) => positionToolTip(e, cursorToolTip, 12.5, 5));
 }
 
 function createPins() {
@@ -172,12 +172,12 @@ function nextQuestion(){
     updateCurrentTargetHTML();
 }
 
-function moveCursorToolTip(e){
+function positionToolTip(e, toolTip, xOffSet, yOffSet){
     var rect = mapContainer.getBoundingClientRect();
     var xInsideDiv = e.clientX - rect.left;
     var yInsideDiv = e.clientY - rect.top;
-    cursorToolTip.style.left = (xInsideDiv + 12.5) + "px";
-    cursorToolTip.style.top = (yInsideDiv + 5) + "px";
+    toolTip.style.left = (xInsideDiv + xOffSet) + "px";
+    toolTip.style.top = (yInsideDiv + yOffSet) + "px";
 }
 
 function updateCurrentTargetHTML(){
