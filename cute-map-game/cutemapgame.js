@@ -149,13 +149,14 @@ function nextQuestion(){
     if (tries == 2){
         score += 1;
     } else if (tries == 1){
-        score += 0.5;
-    } else if (tries == 0){
         score += 0.25;
+    } else if (tries == 0){
+        score += 0.5;
     } else if (tries < 0){
         score += 0;
     }
     console.log(score);
+    console.log(updateScore(score) + "%");
     tries = 3;
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
@@ -199,4 +200,8 @@ function updateTimerHTML(timer){
 function zeroTriesPin(pin){
     console.log("this is running!");
     pin.classList.toggle("alert");
+}
+
+function updateScore(s){
+    return (s / (questionCounter + 1)) * 100;
 }
