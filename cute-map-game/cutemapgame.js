@@ -118,7 +118,13 @@ function checkAnswer(e, selectedPin){
     }
     if (selectedPin === currentTarget) {
         questionCounterHTML.innerHTML = questionCounter + 1;
-        selectedPinHTML.setAttribute("class", "pin selected");
+        if (tries == 2){
+            selectedPinHTML.setAttribute("class", "pin selected");
+        } else if (tries < 0){
+            selectedPinHTML.setAttribute("class", "pin selected-red");
+        } else if (tries < 2) {
+            selectedPinHTML.setAttribute("class", "pin selected-yellow");
+        }
         var pinInside = document.createElement("div");
         pinInside.setAttribute("class", "pin-inside");
         selectedPinHTML.appendChild(pinInside);
@@ -130,6 +136,7 @@ function checkAnswer(e, selectedPin){
         }
     } else if (tries == 0) {
         alert(tries + " tries left. click the right one!!!!");
+        correctPinHTML.classList.toggle("alert");
         zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
     } else if (tries <= 3) {
         alert("try again. " + tries + " tries left.");
