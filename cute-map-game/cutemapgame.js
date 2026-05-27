@@ -94,18 +94,22 @@ function createPins() {
         pin.setAttribute("class", "pin");
         pin.style.left = loc.x + '%';
         pin.style.top = loc.y + '%';
-        pin.addEventListener("click", () => checkAnswer(loc.name), { once: true });
+        pin.addEventListener("click", (e) => checkAnswer(e, loc.name));
         mapContainer.appendChild(pin);
     });
 }
 
-function checkAnswer(selectedPin){ 
+function checkAnswer(e, selectedPin){
+    var selectedPinHTML = e.currentTarget;
+    if (selectedPinHTML.classList.contains("selected")) {
+        return;
+    }
     if (selectedPin === currentTarget) {
         questionCounterHTML.innerHTML = questionCounter + 1;
-        event.target.setAttribute("class", "pin selected");
+        selectedPinHTML.setAttribute("class", "pin selected");
         var pinInside = document.createElement("div");
         pinInside.setAttribute("class", "pin-inside");
-        event.target.appendChild(pinInside);
+        selectedPinHTML.appendChild(pinInside);
         if (questionCounter == locationNames.length - 1) {
             alert("quiz finished");
         } else {
