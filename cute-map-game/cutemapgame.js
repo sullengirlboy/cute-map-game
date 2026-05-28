@@ -138,11 +138,7 @@ function checkAnswer(e, selectedPin){
     } else {
         var selectedPinToolTip = document.createElement("div");
         selectedPinToolTip.setAttribute("class", "tooltip");
-        var rect = mapContainer.getBoundingClientRect();
-        var xInsideDiv = e.clientX - rect.left;
-        var yInsideDiv = e.clientY - rect.top;
-        selectedPinToolTip.style.left = (xInsideDiv + 12.5) + "px";
-        selectedPinToolTip.style.top = (yInsideDiv + 5) + "px";
+        positionToolTip(e, selectedPinToolTip, 5, 2.5);
         selectedPinToolTip.style.opacity = 1;
         selectedPinToolTip.innerHTML = "<b>" + selectedPin + "</b>";
         mapContainer.appendChild(selectedPinToolTip);
