@@ -111,46 +111,46 @@ function createPins() {
 }
 
 function checkAnswer(e, selectedPin){
-    tries = tries - 1;
     var selectedPinHTML = e.currentTarget;
     var correctPinHTML = mapContainer.querySelector(`[data-name="${currentTarget}"]`);
     if (selectedPinHTML.classList.contains("selected")) {
         return;
-    }
-    if (selectedPin === currentTarget) {
-        questionCounterHTML.innerHTML = questionCounter + 1;
-        if (tries == 2){
-            selectedPinHTML.setAttribute("class", "pin selected");
-        } else if (tries < 0){
-            selectedPinHTML.setAttribute("class", "pin selected-red");
-        } else if (tries < 2) {
-            selectedPinHTML.setAttribute("class", "pin selected-yellow");
-        }
-        var pinInside = document.createElement("div");
-        pinInside.setAttribute("class", "pin-inside");
-        selectedPinHTML.appendChild(pinInside);
-        if (questionCounter == locationNames.length - 1) {
-            alert("quiz finished");
-            clearInterval(timerInterval);
-        } else {
-            nextQuestion();
-        }
     } else {
-        var selectedPinToolTip = document.createElement("div");
-        selectedPinToolTip.setAttribute("class", "tooltip");
-        positionToolTip(e, selectedPinToolTip, 5, 2.5);
-        selectedPinToolTip.style.opacity = 1;
-        selectedPinToolTip.innerHTML = "<b>" + selectedPin + "</b>";
-        mapContainer.appendChild(selectedPinToolTip);
-        setTimeout(() => {
-            selectedPinToolTip.setAttribute("class", "tooltip fade");
+        tries = tries - 1;
+        if (selectedPin === currentTarget) {
+            questionCounterHTML.innerHTML = questionCounter + 1;
+            if (tries == 2){
+                selectedPinHTML.setAttribute("class", "pin selected");
+            } else if (tries < 0){
+                selectedPinHTML.setAttribute("class", "pin selected-red");
+            } else if (tries < 2) {
+                selectedPinHTML.setAttribute("class", "pin selected-yellow");
+            }
+            var pinInside = document.createElement("div");
+            pinInside.setAttribute("class", "pin-inside");
+            selectedPinHTML.appendChild(pinInside);
+            if (questionCounter == locationNames.length - 1) {
+                finishQuiz();
+            } else {
+                nextQuestion();
+            }
+        } else {
+            var selectedPinToolTip = document.createElement("div");
+            selectedPinToolTip.setAttribute("class", "tooltip");
+            positionToolTip(e, selectedPinToolTip, 5, 2.5);
+            selectedPinToolTip.style.opacity = 1;
+            selectedPinToolTip.innerHTML = "<b>" + selectedPin + "</b>";
+            mapContainer.appendChild(selectedPinToolTip);
             setTimeout(() => {
-                selectedPinToolTip.remove();
-            }, 300);
-        }, 2000);
-        if (tries == 0) {
-            correctPinHTML.classList.toggle("alert");
-            zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
+                selectedPinToolTip.setAttribute("class", "tooltip fade");
+                setTimeout(() => {
+                    selectedPinToolTip.remove();
+                }, 300);
+            }, 2000);
+            if (tries == 0) {
+                correctPinHTML.classList.toggle("alert");
+                zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
+            }
         }
     }
 }
@@ -215,4 +215,9 @@ function zeroTriesPin(pin){
 
 function updateScore(s){
     return (s / (questionCounter + 1)) * 100;
+}
+
+function finishQuiz(){
+    alert("quiz finished");
+    clearInterval(timerInterval);
 }
