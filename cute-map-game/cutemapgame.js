@@ -81,6 +81,7 @@ var seconds = 0;
 var tries = 3;
 var zeroTriesPinInterval;
 var score = 0;
+var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -95,7 +96,7 @@ function startGame() {
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
-    mapContainer.addEventListener("mousemove", (e) => positionToolTip(e, cursorToolTip, 12.5, 5));
+    mapContainer.addEventListener("mousemove", cursorToolTipRef);
 }
 
 function createPins() {
@@ -220,4 +221,6 @@ function updateScore(s){
 function finishQuiz(){
     alert("quiz finished");
     clearInterval(timerInterval);
+    mapContainer.removeEventListener("mousemove", cursorToolTipRef);
+    cursorToolTip.remove();
 }
