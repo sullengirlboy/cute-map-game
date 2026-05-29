@@ -94,6 +94,11 @@ main .top-bar {
     padding: 2.5px;
     font-size: 0.9em;
     z-index: 10;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip.fade {
+    opacity: 0 !important;
 }
 
 #map:hover #cursor-tooltip {

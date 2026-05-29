@@ -142,6 +142,9 @@ function checkAnswer(e, selectedPin){
         selectedPinToolTip.style.opacity = 1;
         selectedPinToolTip.innerHTML = "<b>" + selectedPin + "</b>";
         mapContainer.appendChild(selectedPinToolTip);
+        setTimeout(() => {
+            selectedPinToolTip.setAttribute("class", "tooltip fade");
+        }, 2000);
         if (tries == 0) {
             correctPinHTML.classList.toggle("alert");
             zeroTriesPinInterval = setInterval(() => zeroTriesPin(correctPinHTML), 750);
