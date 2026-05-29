@@ -40,6 +40,7 @@ main {
     background-repeat: no-repeat;
 
     position: relative;
+    overflow: clip;
 }
 
 .pin {
@@ -57,7 +58,7 @@ main {
 }
 
 .pin:hover, .pin:focus-visible {
-    box-shadow: 0 0 0 10px rgba(255, 19, 86, 0.1);
+    box-shadow: 0 0 0 10px rgba(255, 19, 19, 0.1);
     border-width: 2px;
 }
 
