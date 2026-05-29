@@ -6,8 +6,9 @@
 body {
     width: 900px;
     margin: 0 auto;
-    background-color: pink;
+    background-color: white;
     position: relative;
+    font-family: georgia;
 }
 
 header, footer {
@@ -19,14 +20,9 @@ main {
     padding: 15px 20px;
     width: 750px;
     margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-main .top-bar {
+.box-inner .top-bar {
     text-align: center;
 }
 
@@ -127,4 +123,26 @@ main .top-bar {
 .pin.selected-yellow:hover, .pin.selected-yellow:focus-visible {
     box-shadow: none;
     border-width: 1.5px;
+}
+
+
+
+
+
+main { 
+    background: url(/cute-map-game/img/back01.gif) !important;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.box-inner {
+    background: #fff; 
+    border-radius: 20px; 
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
