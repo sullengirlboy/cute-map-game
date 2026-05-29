@@ -144,6 +144,7 @@ function checkAnswer(e, selectedPin){
         mapContainer.appendChild(selectedPinToolTip);
         setTimeout(() => {
             selectedPinToolTip.setAttribute("class", "tooltip fade");
+            selectedPinToolTip.remove();
         }, 2000);
         if (tries == 0) {
             correctPinHTML.classList.toggle("alert");
