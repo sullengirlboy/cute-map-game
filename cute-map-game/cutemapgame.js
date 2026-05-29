@@ -114,7 +114,7 @@ function createPins() {
 function checkAnswer(e, selectedPin){
     var selectedPinHTML = e.currentTarget;
     var correctPinHTML = mapContainer.querySelector(`[data-name="${currentTarget}"]`);
-    if (selectedPinHTML.classList.contains("selected")) {
+    if (selectedPinHTML.classList.contains("selected") || selectedPinHTML.classList.contains("selected-red") || selectedPinHTML.classList.contains("selected-yellow")) {
         return;
     } else {
         tries = tries - 1;
