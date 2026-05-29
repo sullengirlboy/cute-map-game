@@ -131,7 +131,7 @@ main {
 
 
 main { 
-    background: url(/cute-map-game/img/back01.gif) !important;
+    background: url(/cute-map-game/img/back01.gif); /* cred to foollovers */
     border-radius: 30px;
     box-sizing: border-box;
     padding: 15px;
