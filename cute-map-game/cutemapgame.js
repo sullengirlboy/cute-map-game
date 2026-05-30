@@ -90,6 +90,10 @@ startBtn.addEventListener("click", startGame);
 // functions
 function startGame() {
     console.log("game started!");
+    minutes = 0;
+    seconds = 0;
+    tries = 3;
+    score = 0;
     timerInterval = setInterval(myTimer, 1000);
     timerHTML.innerHTML = minutes + ":0" + seconds;
     gameContainer.style.display = "block";
@@ -222,5 +226,12 @@ function finishQuiz(){
     alert("quiz finished");
     clearInterval(timerInterval);
     mapContainer.removeEventListener("mousemove", cursorToolTipRef);
+    cursorToolTip.remove();
+}
+
+function restartQuitQuiz(){
+    gameContainer.style.display = "none";
+    startBtn.style.display = "block";
+    clearInterval(timerInterval);
     cursorToolTip.remove();
 }
