@@ -1,5 +1,6 @@
 // html references
 var startBtn = document.getElementById("startBtn");
+var startContainer = document.getElementById("startBtn-p");
 var gameContainer = document.getElementById("game-p");
 var mapContainer = document.getElementById("map");
 var currentTargetHTML = document.querySelectorAll(".current-target");
@@ -101,7 +102,7 @@ function startGame() {
     timerInterval = setInterval(myTimer, 1000);
     timerHTML.innerHTML = minutes + ":0" + seconds;
     gameContainer.style.display = "block";
-    startBtn.style.display = "none";
+    startContainer.style.display = "none";
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
@@ -235,7 +236,7 @@ function finishQuiz(){
 
 function restartQuitQuiz(){
     gameContainer.style.display = "none";
-    startBtn.style.display = "block";
+    startContainer.style.display = "block";
     clearInterval(timerInterval);
     cursorToolTip.remove();
 }
