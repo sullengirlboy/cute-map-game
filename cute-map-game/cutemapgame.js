@@ -93,6 +93,7 @@ quitBtn.addEventListener("click", restartQuitQuiz);
 function startGame() {
     console.log("game started!");
     shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
+    questionCounter = 0;
     minutes = 0;
     seconds = 0;
     tries = 3;
