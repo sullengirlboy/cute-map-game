@@ -6,7 +6,7 @@
 body {
     width: 900px;
     margin: 0 auto;
-    background-color: white;
+    background-color: rgb(253, 229, 229);
     position: relative;
     font-family: georgia;
 }
@@ -16,7 +16,6 @@ header, footer {
 }
 
 main {
-    background-color: white;
     padding: 15px 20px;
     width: 750px;
     margin: 0 auto;
@@ -24,6 +23,12 @@ main {
 
 .box-inner .top-bar {
     text-align: center;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #game-p {
@@ -34,6 +39,8 @@ main {
     width: 550px;
     height: 500px;
     border: 2px solid black;
+    border-radius: 30px;
+    background-color: #fff;
     background-image: url(/cute-map-game/img/mo-outlinev3.svg);
     background-size:  500px auto;
     background-position: center;
@@ -139,7 +146,7 @@ main {
 }
 
 .box-inner {
-    background: #fff; 
+    background: white; 
     border-radius: 20px; 
     padding: 20px;
     

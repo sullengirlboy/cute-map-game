@@ -6,6 +6,7 @@ var currentTargetHTML = document.querySelectorAll(".current-target");
 var questionCounterHTML = document.getElementById("progress");
 var cursorToolTip = document.getElementById("cursor-tooltip");
 var timerHTML = document.getElementById("timer");
+var scoreHTML = document.getElementById("score");
 
 // variables
 var locations = [
@@ -167,8 +168,7 @@ function nextQuestion(){
     } else if (tries < 0){
         score += 0;
     }
-    console.log(score);
-    console.log(updateScore(score) + "%");
+    scoreHTML.innerHTML = updateScore(score) + "%";
     tries = 3;
     questionCounter += 1;
     currentTarget = shuffledLocations[questionCounter];
