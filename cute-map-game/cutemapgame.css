@@ -29,6 +29,24 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar > div {
+    width: 125px;
+    height: auto;
+    border: 1.5px solid lightgray;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.top-bar > div p {
+    margin: 0;
+}
+
+.lightgray {
+    color: lightgray;
 }
 
 #game-p {

@@ -215,7 +215,7 @@ function zeroTriesPin(pin){
 }
 
 function updateScore(s){
-    return (s / (questionCounter + 1)) * 100;
+    return Math.round((s / (questionCounter + 1)) * 100);
 }
 
 function finishQuiz(){
