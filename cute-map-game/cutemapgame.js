@@ -7,6 +7,7 @@ var questionCounterHTML = document.getElementById("progress");
 var cursorToolTip = document.getElementById("cursor-tooltip");
 var timerHTML = document.getElementById("timer");
 var scoreHTML = document.getElementById("score");
+var quitBtn = document.getElementById("quitBtn");
 
 // variables
 var locations = [
@@ -72,7 +73,7 @@ var locations = [
     }
 ];
 var locationNames = locations.map(loc => loc.name);
-var shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
+var shuffledLocations;
 var currentTarget;
 var questionCounter = 0;
 var timer = 0;
@@ -86,10 +87,12 @@ var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
 
 // program code
 startBtn.addEventListener("click", startGame);
+quitBtn.addEventListener("click", restartQuitQuiz);
 
 // functions
 function startGame() {
     console.log("game started!");
+    shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
     minutes = 0;
     seconds = 0;
     tries = 3;
