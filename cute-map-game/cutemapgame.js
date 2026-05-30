@@ -95,12 +95,15 @@ function startGame() {
     console.log("game started!");
     shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
     questionCounter = 0;
+    timer = 0;
     minutes = 0;
     seconds = 0;
     tries = 3;
     score = 0;
     timerInterval = setInterval(myTimer, 1000);
     timerHTML.innerHTML = minutes + ":0" + seconds;
+    scoreHTML.innerHTML = updateScore(score) + "%";
+    questionCounterHTML.innerHTML = questionCounter;
     gameContainer.style.display = "block";
     startContainer.style.display = "none";
     createPins();
