@@ -239,7 +239,7 @@ function finishQuiz(){
 
 function restartQuitQuiz(){
     gameContainer.style.display = "none";
-    startContainer.style.display = "block";
+    startContainer.style.display = "flex";
     clearInterval(timerInterval);
     cursorToolTip.remove();
 }

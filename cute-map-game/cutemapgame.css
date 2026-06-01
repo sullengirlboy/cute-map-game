@@ -4,14 +4,15 @@
 }
 
 body {
-    width: 900px;
+    width: 750px;
     margin: 0 auto;
     background-color: rgb(253, 229, 229);
     position: relative;
     font-family: georgia;
+    padding-top: 50px;
 }
 
-header, footer {
+footer {
     text-align: center;
 }
 
@@ -176,4 +177,33 @@ main {
 
 #startBtn-p {
     text-align: center;
+    height: 556px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+background-color: white;
+border-radius: 12.5px 12.5px 0px 0px;
+padding: 7.5px 12.5px 0px;
+color: #423222;
+text-decoration:none;
+position:relative;
+top:0px;
+left:1.5em;
+z-index:-10px;
+display: flex;
+width: fit-content;
+flex-direction: row;
+gap: 7.5px;
+}
+
+header h1 {
+    margin: 0;
+display: inline;
+font-weight: normal;
+font-size: 1em;
+color: gray;
 }
