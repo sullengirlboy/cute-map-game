@@ -9,6 +9,7 @@ var cursorToolTip = document.getElementById("cursor-tooltip");
 var timerHTML = document.getElementById("timer");
 var scoreHTML = document.getElementById("score");
 var quitBtn = document.getElementById("quitBtn");
+var skipBtn = document.getElementById("skipBtn");
 
 // variables
 var locations = [
@@ -89,6 +90,7 @@ var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
 // program code
 startBtn.addEventListener("click", startGame);
 quitBtn.addEventListener("click", restartQuitQuiz);
+skipBtn.addEventListener("click", skipLoc);
 
 // functions
 function startGame() {
@@ -242,4 +244,12 @@ function restartQuitQuiz(){
     startContainer.style.display = "flex";
     clearInterval(timerInterval);
     cursorToolTip.remove();
+}
+
+function skipLoc(){
+    var currentIndex = shuffledLocations.indexOf(currentTarget);
+    shuffledLocations.push(shuffledLocations.splice(currentIndex, 1)[0]);
+    currentTarget = shuffledLocations[currentIndex];
+    tries = 3;
+    updateCurrentTargetHTML();
 }
