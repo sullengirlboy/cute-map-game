@@ -298,3 +298,7 @@ footer ::-moz-selection, #end-p ::-moz-selection {
 #end-p > p > span {
     font-weight: bold;
 }
+
+.blur {
+    filter: blur(5px);
+}

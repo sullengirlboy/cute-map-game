@@ -13,6 +13,8 @@ var skipBtn = document.getElementById("skipBtn");
 var endContainer = document.getElementById("end-p");
 var finalScoreHTML = document.getElementById("final-score");
 var finalTimeHTML = document.getElementById("final-time");
+var restartBtn = document.getElementById("restartBtn");
+var seeMapBtn = document.getElementById("seeMapBtn");
 
 // variables
 var locations = [
@@ -94,6 +96,8 @@ var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
 startBtn.addEventListener("click", startGame);
 quitBtn.addEventListener("click", restartQuitQuiz);
 skipBtn.addEventListener("click", skipLoc);
+restartBtn.addEventListener("click", restartQuitQuiz);
+seeMapBtn.addEventListener("click", seeMap);
 
 // functions
 function startGame() {
@@ -238,13 +242,15 @@ function finishQuiz(){
     clearInterval(timerInterval);
     mapContainer.removeEventListener("mousemove", cursorToolTipRef);
     cursorToolTip.remove();
-    endContainer.setAttribute("class", "fade");
-    gameContainer.style.filter = "blur(5px)";
+    endContainer.classList.add("fade");
+    gameContainer.classList.add("blur");
     finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100) + "%";
     finalTimeHTML.innerHTML = updateTimerHTML(timer);
 }
 
 function restartQuitQuiz(){
+    endContainer.classList.remove("fade");
+    gameContainer.classList.remove("blur");
     gameContainer.style.display = "none";
     startContainer.style.display = "flex";
     clearInterval(timerInterval);
@@ -257,4 +263,9 @@ function skipLoc(){
     currentTarget = shuffledLocations[currentIndex];
     tries = 3;
     updateCurrentTargetHTML();
+}
+
+function seeMap(){
+    endContainer.classList.remove("fade");
+    gameContainer.classList.remove("blur");
 }
