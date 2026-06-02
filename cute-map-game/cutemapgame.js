@@ -10,6 +10,8 @@ var timerHTML = document.getElementById("timer");
 var scoreHTML = document.getElementById("score");
 var quitBtn = document.getElementById("quitBtn");
 var skipBtn = document.getElementById("skipBtn");
+var endContainer = document.getElementById("end-p");
+var finalScoreHTML = document.getElementById("final-score");
 
 // variables
 var locations = [
@@ -224,7 +226,6 @@ function updateTimerHTML(timer){
 }
 
 function zeroTriesPin(pin){
-    console.log("this is running!");
     pin.classList.toggle("alert");
 }
 
@@ -233,10 +234,12 @@ function updateScore(s){
 }
 
 function finishQuiz(){
-    alert("quiz finished");
     clearInterval(timerInterval);
     mapContainer.removeEventListener("mousemove", cursorToolTipRef);
     cursorToolTip.remove();
+    endContainer.setAttribute("class", "fade");
+    gameContainer.style.filter = "blur(5px)";
+    finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100);
 }
 
 function restartQuitQuiz(){
