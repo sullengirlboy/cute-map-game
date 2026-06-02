@@ -14,12 +14,13 @@ body {
 
 footer {
     text-align: center;
-    font-size: 0.9em;
     color: gray;
+    font-size: 0.9em;
 }
 
 footer a {
     color: gray;
+    font-size: inherit;
 }
 
 footer a:hover, a:focus-visible {
@@ -64,6 +65,7 @@ main {
 #game-p {
     display: none;
     margin: 25px 0;
+    filter: blur(5px);
 }
 
 #map {
@@ -262,4 +264,16 @@ footer ::selection {
 footer ::-moz-selection {
     color: black;
     background-color: white;
+}
+
+#end-p {
+    position: absolute;
+    text-align: center;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: pink;
 }
