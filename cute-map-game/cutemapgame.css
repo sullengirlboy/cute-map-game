@@ -237,7 +237,7 @@ header > div > img {
 }
 
 #skipBtn {
-    color: gray;
+    color: rgb(161, 161, 161);
     cursor: pointer;
     letter-spacing: -0.3em;
     font-size: 0.8em;
