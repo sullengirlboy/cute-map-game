@@ -15,6 +15,16 @@ body {
 footer {
     text-align: center;
     font-size: 0.9em;
+    color: gray;
+}
+
+footer a {
+    color: gray;
+}
+
+footer a:hover, a:focus-visible {
+    font-style: italic;
+    color: gray;
 }
 
 main {
@@ -234,11 +244,21 @@ header > div > img {
 }
 
 ::selection {
-  color: gray;             /* Changes the highlighted text color */
-  background-color: rgb(253, 229, 229);  /* Changes the highlight background color */
+    color: gray;
+    background-color: rgb(253, 229, 229);
 }
 
 ::-moz-selection {
-  color: gray;
-  background-color: rgb(253, 229, 229);
+    color: gray;
+    background-color: rgb(253, 229, 229);
+}
+
+footer ::selection {
+    color: black;
+    background-color: white;
+}
+
+footer ::-moz-selection {
+    color: black;
+    background-color: white;
 }
