@@ -171,6 +171,16 @@ main {
     border-width: 1.5px;
 }
 
+.pin.selected-orange {
+    background-color: rgb(229, 142, 55);
+    cursor: initial;
+}
+
+.pin.selected-orange:hover, .pin.selected-orange:focus-visible {
+    box-shadow: none;
+    border-width: 1.5px;
+}
+
 
 
 

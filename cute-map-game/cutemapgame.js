@@ -136,7 +136,7 @@ function createPins() {
 function checkAnswer(e, selectedPin){
     var selectedPinHTML = e.currentTarget;
     var correctPinHTML = mapContainer.querySelector(`[data-name="${currentTarget}"]`);
-    if (selectedPinHTML.classList.contains("selected") || selectedPinHTML.classList.contains("selected-red") || selectedPinHTML.classList.contains("selected-yellow")) {
+    if (selectedPinHTML.classList.contains("selected") || selectedPinHTML.classList.contains("selected-red") || selectedPinHTML.classList.contains("selected-yellow") || selectedPinHTML.classList.contains("selected-orange")) {
         return;
     } else {
         tries = tries - 1;
@@ -144,10 +144,12 @@ function checkAnswer(e, selectedPin){
             questionCounterHTML.innerHTML = questionCounter + 1;
             if (tries == 2){
                 selectedPinHTML.setAttribute("class", "pin selected");
-            } else if (tries < 0){
+            } else if (tries == -1){
                 selectedPinHTML.setAttribute("class", "pin selected-red");
-            } else if (tries < 2) {
+            } else if (tries == 1) {
                 selectedPinHTML.setAttribute("class", "pin selected-yellow");
+            } else if (tries == 0) {
+                selectedPinHTML.setAttribute("class", "pin selected-orange");
             }
             var pinInside = document.createElement("div");
             pinInside.setAttribute("class", "pin-inside");
