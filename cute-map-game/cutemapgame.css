@@ -185,23 +185,28 @@ main {
 }
 
 header {
-    margin-left: 0.75em;
+    margin-left: 1.25em;
 }
 
 header div {
     background-color: white;
     border-radius: 12.5px 12.5px 0px 0px;
-    padding: 7.5px 15px 0px 12.5px;
+    padding: 7.5px 15px 5px 12.5px;
     text-decoration: none;
     /* position: relative;
     top: 0px;
     left: 1.5em; */
-    margin-left: 0.75em;
+    margin-left: 0.25em;
     z-index: -10px;
-    display: inline;
+    display: inline-flex;
     width: fit-content;
     flex-direction: row;
     gap: 7.5px;
+    vertical-align: bottom;
+}
+
+header div:nth-child(2) {
+    background-color: rgb(239, 239, 239);
 }
 
 header > div > h1 {
@@ -209,11 +214,12 @@ header > div > h1 {
     display: inline;
     font-weight: normal;
     font-size: 1em;
-    color: gray;
+    color: black;
 }
 
 header > div > img {
     filter: saturate(75%) brightness(110%);
+    display: inline;
 }
 
 #skipBtn {
