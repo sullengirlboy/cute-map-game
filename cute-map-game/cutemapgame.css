@@ -42,11 +42,7 @@ main {
     border-radius: 10px;
 }
 
-.top-bar > p {
-    margin: 0;
-}
-
-.top-bar > div p {
+.top-bar > p, div p {
     margin: 0;
 }
 
@@ -191,7 +187,7 @@ main {
 header {
     background-color: white;
     border-radius: 12.5px 12.5px 0px 0px;
-    padding: 7.5px 12.5px 0px;
+    padding: 7.5px 15px 0px 12.5px;
     color: #423222;
     text-decoration:none;
     position:relative;
@@ -210,6 +206,10 @@ header h1 {
     font-weight: normal;
     font-size: 1em;
     color: gray;
+}
+
+header > img {
+    filter: saturate(75%) brightness(110%);
 }
 
 #skipBtn {
