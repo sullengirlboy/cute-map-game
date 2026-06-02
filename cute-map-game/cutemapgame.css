@@ -151,32 +151,32 @@ main {
     background-color: rgb(229, 55, 55);
 }
 
-.pin.selected-red {
+.pin.selected.red {
     background-color: rgb(229, 55, 55);
     cursor: initial;
 }
 
-.pin.selected-red:hover, .pin.selected-red:focus-visible {
+.pin.selected.red:hover, .pin.selected.red:focus-visible {
     box-shadow: none;
     border-width: 1.5px;
 }
 
-.pin.selected-yellow {
+.pin.selected.yellow {
     background-color: rgb(229, 185, 55);
     cursor: initial;
 }
 
-.pin.selected-yellow:hover, .pin.selected-yellow:focus-visible {
+.pin.selected.yellow:hover, .pin.selected.yellow:focus-visible {
     box-shadow: none;
     border-width: 1.5px;
 }
 
-.pin.selected-orange {
+.pin.selected.orange {
     background-color: rgb(229, 142, 55);
     cursor: initial;
 }
 
-.pin.selected-orange:hover, .pin.selected-orange:focus-visible {
+.pin.selected.orange:hover, .pin.selected.orange:focus-visible {
     box-shadow: none;
     border-width: 1.5px;
 }
