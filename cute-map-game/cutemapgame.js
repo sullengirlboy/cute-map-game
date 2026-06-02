@@ -12,6 +12,7 @@ var quitBtn = document.getElementById("quitBtn");
 var skipBtn = document.getElementById("skipBtn");
 var endContainer = document.getElementById("end-p");
 var finalScoreHTML = document.getElementById("final-score");
+var finalTimeHTML = document.getElementById("final-time");
 
 // variables
 var locations = [
@@ -207,7 +208,7 @@ function updateCurrentTargetHTML(){
 
 function myTimer(){
     timer += 1;
-    updateTimerHTML(timer);
+    timerHTML.innerHTML = updateTimerHTML(timer);
 }
 
 function updateTimerHTML(timer){
@@ -222,7 +223,7 @@ function updateTimerHTML(timer){
     } else {
         seconds = seconds;
     }
-    timerHTML.innerHTML = minutes + ":" + seconds;
+    return minutes + ":" + seconds;
 }
 
 function zeroTriesPin(pin){
@@ -239,7 +240,8 @@ function finishQuiz(){
     cursorToolTip.remove();
     endContainer.setAttribute("class", "fade");
     gameContainer.style.filter = "blur(5px)";
-    finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100);
+    finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100) + "%";
+    finalTimeHTML.innerHTML = updateTimerHTML(timer);
 }
 
 function restartQuitQuiz(){
