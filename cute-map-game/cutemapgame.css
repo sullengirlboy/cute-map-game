@@ -185,22 +185,26 @@ main {
 }
 
 header {
+    margin-left: 0.75em;
+}
+
+header div {
     background-color: white;
     border-radius: 12.5px 12.5px 0px 0px;
     padding: 7.5px 15px 0px 12.5px;
-    color: #423222;
-    text-decoration:none;
-    position:relative;
-    top:0px;
-    left:1.5em;
-    z-index:-10px;
-    display: flex;
+    text-decoration: none;
+    /* position: relative;
+    top: 0px;
+    left: 1.5em; */
+    margin-left: 0.75em;
+    z-index: -10px;
+    display: inline;
     width: fit-content;
     flex-direction: row;
     gap: 7.5px;
 }
 
-header h1 {
+header > div > h1 {
     margin: 0;
     display: inline;
     font-weight: normal;
@@ -208,7 +212,7 @@ header h1 {
     color: gray;
 }
 
-header > img {
+header > div > img {
     filter: saturate(75%) brightness(110%);
 }
 
