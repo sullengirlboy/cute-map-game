@@ -113,8 +113,10 @@ function startGame() {
     timerHTML.innerHTML = minutes + ":0" + seconds;
     scoreHTML.innerHTML = updateScore(score) + "%";
     questionCounterHTML.innerHTML = questionCounter;
-    gameContainer.style.display = "block";
-    startContainer.style.display = "none";
+    // gameContainer.style.display = "block";
+    fade(true, gameContainer);
+    // startContainer.style.display = "none";
+    fade(false, startContainer);
     createPins();
     currentTarget = shuffledLocations[questionCounter];
     updateCurrentTargetHTML();
@@ -243,14 +245,14 @@ function finishQuiz(){
     clearInterval(timerInterval);
     mapContainer.removeEventListener("mousemove", cursorToolTipRef);
     cursorToolTip.remove();
-    endContainer.classList.add("fade");
+    fade(true, endContainer);
     gameContainer.classList.add("blur");
     finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100) + "%";
     finalTimeHTML.innerHTML = updateTimerHTML(timer);
 }
 
 function restartQuitQuiz(){
-    endContainer.classList.remove("fade");
+    fade(false, endContainer);
     gameContainer.classList.remove("blur");
     gameContainer.style.display = "none";
     startContainer.style.display = "flex";
@@ -267,6 +269,18 @@ function skipLoc(){
 }
 
 function seeMap(){
-    endContainer.classList.remove("fade");
+    fade(false, endContainer);
     gameContainer.classList.remove("blur");
+}
+
+function fade(fadeIn, element){
+    if (fadeIn) {
+        element.style.opacity = "1";
+        element.style.visibility = "visible";
+        element.style.pointerEvents = "auto";
+    } else {
+        element.style.opacity = "0";
+        element.style.visibility = "hidden";
+        element.style.pointerEvents = "none";
+    }
 }
