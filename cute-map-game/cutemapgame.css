@@ -306,6 +306,16 @@ header > div > img {
     font-weight: bold;
 }
 
+#end-p > img {
+    width: 100%;
+}
+
+#end-p > .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 7.5px;
+}
+
 footer {
     text-align: center;
     color: gray;
