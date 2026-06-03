@@ -3,9 +3,9 @@ var startBtn = document.getElementById("startBtn");
 var startContainer = document.getElementById("startBtn-p");
 var gameContainer = document.getElementById("game-p");
 var mapContainer = document.getElementById("map");
-var currentTargetHTML = document.querySelectorAll(".current-target");
+// var currentTargetHTML = document.querySelectorAll(".current-target");
+var currentTargetHTML;
 var questionCounterHTML = document.getElementById("progress");
-var cursorToolTip = document.getElementById("cursor-tooltip");
 var timerHTML = document.getElementById("timer");
 var scoreHTML = document.getElementById("score");
 var quitBtn = document.getElementById("quitBtn");
@@ -91,6 +91,7 @@ var tries = 3;
 var zeroTriesPinInterval;
 var score = 0;
 var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
+var cursorToolTip;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -102,6 +103,12 @@ seeMapBtn.addEventListener("click", seeMap);
 // functions
 function startGame() {
     console.log("game started!");
+    cursorToolTip = document.createElement("div");
+    cursorToolTip.setAttribute("id", "cursor-tooltip");
+    cursorToolTip.classList.add("tooltip");
+    cursorToolTip.innerHTML = 'Click on <b><span class="current-target"></span></b>';
+    mapContainer.appendChild(cursorToolTip);
+    currentTargetHTML = document.querySelectorAll(".current-target");
     shuffledLocations = locationNames.sort(() => Math.random() - 0.5);
     questionCounter = 0;
     timer = 0;
