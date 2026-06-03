@@ -113,9 +113,7 @@ function startGame() {
     timerHTML.innerHTML = minutes + ":0" + seconds;
     scoreHTML.innerHTML = updateScore(score) + "%";
     questionCounterHTML.innerHTML = questionCounter;
-    // gameContainer.style.display = "block";
     fade(true, gameContainer);
-    // startContainer.style.display = "none";
     fade(false, startContainer);
     createPins();
     currentTarget = shuffledLocations[questionCounter];
@@ -254,8 +252,8 @@ function finishQuiz(){
 function restartQuitQuiz(){
     fade(false, endContainer);
     gameContainer.classList.remove("blur");
-    gameContainer.style.display = "none";
-    startContainer.style.display = "flex";
+    fade(false, gameContainer);
+    fade(true, startContainer);
     clearInterval(timerInterval);
     cursorToolTip.remove();
 }
