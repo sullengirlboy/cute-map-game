@@ -271,14 +271,22 @@ function seeMap(){
     gameContainer.classList.remove("blur");
 }
 
-function fade(fadeIn, element){
+function fade(fadeIn, element, display = "none"){
     if (fadeIn) {
-        element.style.opacity = "1";
-        element.style.visibility = "visible";
-        element.style.pointerEvents = "auto";
+        element.style.display = display;
+        requestAnimationFrame(() => {
+            element.style.opacity = "1";
+            element.style.visibility = "visible";
+            element.style.pointerEvents = "auto";
+        });
     } else {
         element.style.opacity = "0";
         element.style.visibility = "hidden";
         element.style.pointerEvents = "none";
+        setTimeout(() => {
+            if (element.style.opacity === "0") {
+                element.style.display = "none";
+            }
+        }, 300);
     }
 }
