@@ -71,6 +71,7 @@ header > div > img {
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 600.89px;
 }
 
 #startBtn-p {
@@ -84,6 +85,7 @@ header > div > img {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    position: absolute;
 }
 
 #game-p {

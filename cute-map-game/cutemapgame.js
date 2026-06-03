@@ -113,7 +113,7 @@ function startGame() {
     timerHTML.innerHTML = minutes + ":0" + seconds;
     scoreHTML.innerHTML = updateScore(score) + "%";
     questionCounterHTML.innerHTML = questionCounter;
-    fade(true, gameContainer);
+    fade(true, gameContainer, "flex");
     fade(false, startContainer);
     createPins();
     currentTarget = shuffledLocations[questionCounter];
@@ -243,7 +243,7 @@ function finishQuiz(){
     clearInterval(timerInterval);
     mapContainer.removeEventListener("mousemove", cursorToolTipRef);
     cursorToolTip.remove();
-    fade(true, endContainer);
+    fade(true, endContainer, "flex");
     gameContainer.classList.add("blur");
     finalScoreHTML.innerHTML = Math.round((score / (questionCounter)) * 100) + "%";
     finalTimeHTML.innerHTML = updateTimerHTML(timer);
@@ -253,7 +253,7 @@ function restartQuitQuiz(){
     fade(false, endContainer);
     gameContainer.classList.remove("blur");
     fade(false, gameContainer);
-    fade(true, startContainer);
+    fade(true, startContainer, "flex");
     clearInterval(timerInterval);
     cursorToolTip.remove();
 }
