@@ -31,7 +31,7 @@ header {
 }
 
 header div {
-    background-color: white;
+    background-color: #fff;
     border-radius: 12.5px 12.5px 0px 0px;
     padding: 7.5px 15px 5px 12.5px;
     text-decoration: none;
@@ -64,7 +64,7 @@ header > div > img {
 }
 
 .box-inner {
-    background: white; 
+    background: #fff; 
     border-radius: 20px; 
     display: flex;
     flex-direction: column;
@@ -174,13 +174,13 @@ header > div > img {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    overflow: clip;
+    overflow: visible;
 }
 
 .pin {
     width: 15px;
     height: 15px;
-    background-color: white;
+    background-color: #fff;
     border: 1.5px solid black;
     border-radius: 15px;
     position: absolute;
@@ -344,10 +344,10 @@ footer a:hover, a:focus-visible {
 
 footer ::selection, #end-p ::selection {
     color: black;
-    background-color: white;
+    background-color: #fff;
 }
 
 footer ::-moz-selection, #end-p ::-moz-selection {
     color: black;
-    background-color: white;
+    background-color: #fff;
 }
