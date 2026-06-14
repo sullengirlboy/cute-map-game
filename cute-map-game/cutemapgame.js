@@ -92,6 +92,7 @@ var zeroTriesPinInterval;
 var score = 0;
 var cursorToolTipRef = (e) => positionToolTip(e, cursorToolTip, 12.5, 5);
 var cursorToolTip;
+var pinList;
 
 // program code
 startBtn.addEventListener("click", startGame);
@@ -129,6 +130,9 @@ function startGame() {
 }
 
 function createPins() {
+    if (typeof pinList !== "undefined") {
+        pinList.forEach(pin => pin.remove());
+    }
     locations.forEach(loc => {
         var pin = document.createElement("div");
         pin.setAttribute("class", "pin");
@@ -138,6 +142,7 @@ function createPins() {
         pin.addEventListener("click", (e) => checkAnswer(e, loc.name));
         mapContainer.appendChild(pin);
     });
+    pinList = Array.from(document.querySelectorAll(".pin"));
 }
 
 function checkAnswer(e, selectedPin){
