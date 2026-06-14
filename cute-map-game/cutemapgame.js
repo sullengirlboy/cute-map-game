@@ -147,6 +147,7 @@ function checkAnswer(e, selectedPin){
         return;
     } else {
         tries = tries - 1;
+        console.log(tries);
         if (selectedPin === currentTarget) {
             questionCounterHTML.innerHTML = questionCounter + 1;
             selectedPinHTML.classList.add("selected");
@@ -239,6 +240,7 @@ function updateTimerHTML(timer){
 }
 
 function zeroTriesPin(pin){
+    console.log("this is running");
     pin.classList.toggle("alert");
 }
 
